@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+    <title>Excesso de bagagem</title>
+</head>
+
+<body class="  bg-cover bg-center" style="background-image: url('https://passagem.eucatur.com.br/webp/frota-onibus-eucatur.webp');">
+
+    <header class="h-auto w-full">
+        <div class="flex text-center justify-center items-center text-white h-full bg-red-600">
+            <h1>Desenvolvido por: <strong>Vinicius Gomes</strong> , Agencia Cacoal!</h1>
+        </div>
+    </header>
+<div class="lg:flex lg:justify-center " >
+    <div class="flex" >
+        <div class="container mx-auto p-8">
+            <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+                <div class="md:flex">
+                    <div class="w-full p-4 ">
+                        <h1 class="text-2xl font-bold text-center mb-4">Calculadora de Excesso de Bagagem por Cubagem </h1>
+                        <div class="h-16 w-full flex justify-center">
+                            <img class="h-14 w-14" src="https://static.significados.com.br/foto/comprimento-largura.jpg" alt="" style="width: 200px; height: 200px;">
+                        </div>   
+                        <form id="bagagemForm">
+                            <div class="mb-4">
+                                <label for="altura" class="block text-sm font-medium text-gray-700">Altura (cm):</label>
+                                <input type="number" id="altura" name="altura" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="largura" class="block text-sm font-medium text-gray-700">Largura (cm):</label>
+                                <input type="number" id="largura" name="largura" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="profundidade" class="block text-sm font-medium text-gray-700">Profundidade (cm):</label>
+                                <input type="number" id="profundidade" name="profundidade" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="valor" class="block text-sm font-medium text-gray-700">Valor da passagem (R$):</label>
+                                <input type="number" id="valor" name="valor" step="0.01" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
+                            </div>
+                            <div>
+                                <button type="button" onclick="calcularExcesso()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md shadow-md">Calcular Excesso</button>
+                            </div>
+                        </form>
+                        <div class="result mt-4 p-4 bg-gray-100 border border-gray-300 rounded-md" id="result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container mx-auto p-8">
+            <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+                <div class="md:flex">
+                    <div class="w-full p-4">
+                        <h1 class="text-2xl font-bold text-center mb-4">Calculadora de Excesso de Bagagem Por Peso</h1>
+                        <div class="h-16 w-full flex justify-center">
+                            <img class="h-14 w-14" src="https://img.freepik.com/vetores-premium/homem-medindo-o-peso-da-carga-na-balanca-industrial-eletronica-isolada-no-fundo-branco_176411-3712.jpg" alt="" style="width: 200px; height: 200px;">
+                        </div> 
+                        <form id="bagagemFormpeso">
+                            <div class="mb-4">
+                                <label for="peso" class="block text-sm font-medium text-gray-700">Peso total (kg):</label>
+                                <input type="number" id="peso" name="peso" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="valorPeso" class="block text-sm font-medium text-gray-700">Valor da passagem (R$):</label>
+                                <input type="number" id="valorPassagem" name="valor" class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
+                            </div>
+                            <div>
+                                <button type="button" onclick="calcularExcessoPeso()" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md shadow-md">Calcular Excesso</button>
+                            </div>
+                        </form>
+                        <div class="result mt-4 p-4 bg-gray-100 border border-gray-300 rounded-md" id="resultPeso"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+<br>
+<br>
+<br>
+<br>
+
+<div class="bg-white rounded-2xl shadow-md p-8 ">
+    <h3>Esse sistema foi baseado nas seguintes regulamentações:</h3>
+    <p>
+        MINISTÉRIO DOS TRANSPORTES<br>
+        AGÊNCIA NACIONAL DE TRANSPORTES TERRESTRES<br>
+        RESOLUÇÃO Nº 1.432, DE 26 DE ABRIL DE 2006<br>
+        
+        <br>
+        I - no bagageiro, 30 (trinta) quilos de peso total e volume máximo de 300 (trezentos) decímetros cúbicos, limitada a maior dimensão de qualquer volume a um metro; e<br>
+        <br>
+        II - no porta-embrulhos, 5 (cinco) quilos de peso total, com dimensões que se adaptem ao porta-embrulhos, desde que não sejam comprometidos o conforto, a segurança e a higiene dos passageiros.<br>
+        <br>
+        § 1º Excedida a franquia fixada nos incisos I e II deste artigo, o passageiro pagará até 0,5% (meio por cento) do preço da passagem correspondente ao serviço convencional com sanitário, em piso pavimentado, pelo transporte de cada quilograma de excesso.<br>
+        <br>
+       
+        
+</div>
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>
