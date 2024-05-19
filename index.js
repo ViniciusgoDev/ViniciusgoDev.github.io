@@ -3,8 +3,9 @@ function calcularExcesso() {
     const largura = parseFloat(document.getElementById('largura').value);
     const profundidade = parseFloat(document.getElementById('profundidade').value);
     const valorPassagem = parseFloat(document.getElementById('valor').value);
-      const diminuirVolume = document.getElementById('diminuirVolume').checked;
-
+    const diminuirVolume = document.getElementById('diminuirVolume').checked;
+     const diminuirVolume = document.getElementById('diminuirVolumePeso').checked;
+    
     const volumeCm3 = altura * largura * profundidade;
     let volumeTotal = volumeCm3 * 300;
 
@@ -26,12 +27,16 @@ function calcularExcesso() {
     `;
 }
 function calcularExcessoPeso() {
-    const peso = parseFloat(document.getElementById('peso').value);
+    let peso = parseFloat(document.getElementById('peso').value);
     const valorPassagemPeso = parseFloat(document.getElementById('valorPassagem').value);
     const taxaExcesso = 0.005 * valorPassagemPeso;
 
-    const excessoPeso = Math.max(0, peso - 30);
-    const custoExcesso = excessoPeso * taxaExcesso;
+
+    if (diminuirVolumePeso) {
+        peso -= 30;
+    }
+    
+    const custoExcesso = peso * taxaExcesso;
     document.getElementById('resultPeso').innerHTML = `
         <p class="text-gray-700"><strong>Excesso de Peso:</strong> ${excessoPeso.toFixed(2)} Quilos</p>
         <p class="text-gray-700"><strong>Valor por Quilo 0.5%:</strong> ${taxaExcesso.toFixed(2)} Por quilo</p>
