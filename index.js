@@ -29,14 +29,16 @@ function calcularExcesso() {
 function calcularExcessoPeso() {
     let peso = parseFloat(document.getElementById('peso').value);
     const valorPassagemPeso = parseFloat(document.getElementById('valorPassagem').value);
-     const diminuirVolumePeso = document.getElementById('diminuirVolumePeso').checked;
-    
+    const diminuirVolumePeso = document.getElementById('diminuirVolumePeso').checked;
+
+    // Calcula a taxa de excesso
     const taxaExcesso = 0.005 * valorPassagemPeso;
 
-
+    // Se o checkbox estiver marcado, subtrai 30 do peso
     if (diminuirVolumePeso) {
         peso -= 30;
     }
+
     
     const custoExcesso = peso * taxaExcesso;
     document.getElementById('resultPeso').innerHTML = `
