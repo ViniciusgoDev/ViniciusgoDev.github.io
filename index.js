@@ -6,7 +6,7 @@ function calcularExcesso() {
       const diminuirVolume = document.getElementById('diminuirVolume').checked;
 
     const volumeCm3 = altura * largura * profundidade;
-    const volumeTotal = volumeCm3 * 300;
+    let volumeTotal = volumeCm3 * 300;
 
 
     
