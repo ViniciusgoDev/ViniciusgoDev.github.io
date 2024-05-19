@@ -4,7 +4,7 @@ function calcularExcesso() {
     const profundidade = parseFloat(document.getElementById('profundidade').value);
     const valorPassagem = parseFloat(document.getElementById('valor').value);
     const diminuirVolume = document.getElementById('diminuirVolume').checked;
-     const diminuirVolume = document.getElementById('diminuirVolumePeso').checked;
+     const diminuirVolumePeso = document.getElementById('diminuirVolumePeso').checked;
     
     const volumeCm3 = altura * largura * profundidade;
     let volumeTotal = volumeCm3 * 300;
