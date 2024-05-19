@@ -3,6 +3,7 @@ function calcularExcesso() {
     const largura = parseFloat(document.getElementById('largura').value);
     const profundidade = parseFloat(document.getElementById('profundidade').value);
     const valorPassagem = parseFloat(document.getElementById('valor').value);
+      const diminuirVolume = document.getElementById('diminuirVolume').checked;
 
     const volumeCm3 = altura * largura * profundidade;
     const volumeTotal = volumeCm3 * 300;
@@ -10,6 +11,10 @@ function calcularExcesso() {
 
     
     const taxaExcesso = 0.005 * valorPassagem;
+
+    if (diminuirVolume) {
+        volumeTotal -= 30;
+    }
    
 
     const custoExcesso = volumeTotal * taxaExcesso;
