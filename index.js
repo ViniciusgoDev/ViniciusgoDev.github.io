@@ -7,23 +7,19 @@ function calcularExcesso() {
     
     
     const volumeCm3 = altura * largura * profundidade;
-    let volumeTotal = volumeCm3 * 300;
-
-
-    
+    let volumeTotal = volumeCm3 * 300;    
     const taxaExcesso = 0.005 * valorPassagem;
 
     if (diminuirVolume) {
         volumeTotal -= 30;
     }
    
-
     const custoExcesso = volumeTotal * taxaExcesso;
 
     document.getElementById('result').innerHTML = `
-        <p class="text-gray-700"><strong>Volume total:</strong> ${volumeTotal.toFixed(2)} Decimetros Cubicos</p>
-        <p class="text-gray-700"><strong>Custo por unidade 0,5%:</strong> R$ ${taxaExcesso.toFixed(2)}</p>
-        <p class="text-gray-700"><strong>Custo do Excesso:</strong> R$ ${custoExcesso.toFixed(2)}</p>
+        <p class="text-gray-700"><strong>Volume total:</strong> ${volumeTotal.toFixed(2)} </p>
+        <p class="text-gray-700"><strong> 0,5% da passagem:</strong> R$ ${taxaExcesso.toFixed(2)}</p>
+        <p class="text-gray-700"><strong>Valor do Excesso:</strong> R$ ${custoExcesso.toFixed(2)}</p>
     `;
 }
 function calcularExcessoPeso() {
@@ -43,7 +39,7 @@ function calcularExcessoPeso() {
     const custoExcesso = peso * taxaExcesso;
     document.getElementById('resultPeso').innerHTML = `
         <p class="text-gray-700"><strong>Excesso de Peso:</strong> ${peso.toFixed(2)} Quilos</p>
-        <p class="text-gray-700"><strong>Valor por Quilo 0.5%:</strong> ${taxaExcesso.toFixed(2)} Por quilo</p>
+        <p class="text-gray-700"><strong>Valor por Quilo:</strong> ${taxaExcesso.toFixed(2)} Por quilo</p>
         <p class="text-gray-700"><strong>Custo do Excesso:</strong> R$ ${custoExcesso.toFixed(2)}</p>
     `;
 }
